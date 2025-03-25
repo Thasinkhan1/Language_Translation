@@ -1,8 +1,11 @@
-SRC_LANG_TOKENIZER_MODEL = "google-T5/T5-base"
+from transformers import AutoTokenizer
+SRC_LANG_TOKENIZER_MODEL = AutoTokenizer.from_pretrained("google-T5/T5-base")
 
 DATASET_PATH = "/home/thasin/class-projects/LLM-project/project_root/dataset/Sentence pairs in English-Hindi - 2025-02-13.tsv"
 
 DATASET_SAVE = "dataset"
+
+# Src_sentece = 'SrcSentence'
 
 COLUMN_NAMES = ["SrcSentenceID","SrcSentence","DstSentenceID","DstSentence"]
 
