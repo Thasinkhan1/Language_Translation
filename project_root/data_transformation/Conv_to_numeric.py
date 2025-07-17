@@ -1,8 +1,8 @@
 from config import config
 from data_loading import data_loading
-import torch
+import torch # type: ignore
 from data_transformation import data_conversion
-import pandas as pd
+import pandas as pd # type: ignore
 
 
 def English_to_numeric(data):
@@ -10,7 +10,7 @@ def English_to_numeric(data):
     tokenizer = config.SRC_LANG_TOKENIZER_MODEL
     data[config.COLUMN_NAMES[1]] = data[config.COLUMN_NAMES[1]].apply(tokenizer.convert_tokens_to_ids)
     
-    print(data.head())
+    #print(data.head())
 
 
 def convert_hindi_tokens_to_ids(data):

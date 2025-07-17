@@ -3,7 +3,7 @@ from data_transformation import data_conversion
 from data_transformation import Conv_to_numeric
 from data_loading import data_loading
 
-import pandas as pd
+import pandas as pd # type: ignore
 
 def clean(data):
     

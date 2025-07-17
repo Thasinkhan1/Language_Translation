@@ -1,4 +1,4 @@
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer # type: ignore
 SRC_LANG_TOKENIZER_MODEL = AutoTokenizer.from_pretrained("google-T5/T5-base")
 
 DATASET_PATH = "/home/thasin/class-projects/LLM-project/project_root/dataset/Sentence pairs in English-Hindi - 2025-02-13.tsv"
@@ -31,15 +31,17 @@ OPTIMIZER = "adam"
 
 LOSS = "categorical_crossentorpy"
 
-HIDDEN_LAYERS = 1
+HIDDEN_LAYERS = 4
 
 TRAINING_DATA_FRAC = 0.98
 
-EPOCHS = 5
+EPOCHS = 20
 
 TESTING_DATA_FRAC = (1-TRAINING_DATA_FRAC)
 
-MB_BATCH = 26
+MB_BATCH = 64
 
 LEARNING_RATE = 0.001
+
+
 

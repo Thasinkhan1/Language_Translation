@@ -1,7 +1,7 @@
 from config import config
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer # type: ignore
 from data_loading import data_loading
-from indicnlp.tokenize import indic_tokenize
+from indicnlp.tokenize import indic_tokenize # type: ignore
 
 def tokenize_src_language(data):
     

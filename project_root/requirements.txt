@@ -1,0 +1,13 @@
+pandas
+numpy
+transformers
+# torch --index-url https://download.pytorch.org/whl/cpu
+#torchvision --index-url https://download.pytorch.org/whl/cpu
+#torchaudio --index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2
+torchvision
+torchaudio
+indic-nlp-library
+fastapi
+jinja2
+FastAPI
