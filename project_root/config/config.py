@@ -1,15 +1,11 @@
-from transformers import AutoTokenizer # type: ignore
-SRC_LANG_TOKENIZER_MODEL = AutoTokenizer.from_pretrained("google-T5/T5-base")
 
-DATASET_PATH = "/home/thasin/class-projects/LLM-project/project_root/dataset/Sentence pairs in English-Hindi - 2025-02-13.tsv"
+DATASET_PATH = "cfilt/iitb-english-hindi"
 
 DATASET_SAVE = "dataset"
 
 # Src_sentece = 'SrcSentence'
 
-COLUMN_NAMES = ["SrcSentenceID","SrcSentence","DstSentenceID","DstSentence"]
-
-SRC_LANG = "english"
+SRC_LANG = "en"
 
 DST_LANG = "hi"
 
@@ -19,7 +15,9 @@ DST_LANG_VOCAB_FILENAME = "dst_vocabulary.pkl"
  
 SAVED_VOCAB_DIR = "encoding"
 
-EXTRA_TOKEN_DICT = {"<PAD>":0,"<SOS": 1, "<EOS>": 2}
+EXTRA_TOKEN_LIST = ["<PAD>", "<SOS>", "<EOS>", "<UNK>"]
+
+VOCAB_SIZE = 30000
 
 LONGEST_SRC_LANG_LENGTH = 68
     
@@ -35,13 +33,13 @@ HIDDEN_LAYERS = 4
 
 TRAINING_DATA_FRAC = 0.98
 
-EPOCHS = 20
+EPOCHS = 1
 
 TESTING_DATA_FRAC = (1-TRAINING_DATA_FRAC)
 
 MB_BATCH = 64
 
-LEARNING_RATE = 0.001
+LEARNING_RATE = 1e-3
 
 
 

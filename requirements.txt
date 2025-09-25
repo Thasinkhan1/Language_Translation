@@ -11,3 +11,4 @@ indic-nlp-library
 fastapi
 jinja2
 FastAPI
+datasets
