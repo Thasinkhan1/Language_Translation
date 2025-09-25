@@ -1,7 +1,7 @@
 from torch.nn.utils.rnn import pad_sequence
 from tokenizers import Tokenizer, models, trainers, pre_tokenizers
-from data import dataset
-from config import config
+from project_root.config import config
+from project_root.data import dataset,utils
 
 
 
@@ -30,3 +30,31 @@ def trg_tokenizer():
     return trg_token
     
 
+#for testing pipeline
+# from tokenizers import Tokenizer
+
+# def test_tokenizer():
+#     en_tok = Tokenizer.from_file(config.src_tokenizer)
+#     hi_tok = Tokenizer.from_file(config.trg_tokenizer)
+
+#     sample_text = "Hello world"
+#     print(sample_text)
+#     encoded = en_tok.encode(sample_text)
+#     print("Encoded:", encoded.ids)
+#     print("Decoded:", en_tok.decode(encoded.ids))
+# # Load train, val, test batches
+#     train_loader = utils.train_loader()
+#     val_loader = utils.val_loader()
+#     test_loader = utils.test_loader()
+    
+#     # Take one batch from train
+#     src_batch, trg_batch = next(iter(train_loader))
+    
+#     print("Source batch shape:", src_batch.shape)
+#     print("Target batch shape:", trg_batch.shape)
+#     print("Example source IDs:", src_batch[0][:20])
+#     print("Example target IDs:", trg_batch[0][:20])
+    
+
+# if __name__ == "__main__":
+#     test_tokenizer()

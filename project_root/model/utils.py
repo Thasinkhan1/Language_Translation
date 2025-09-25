@@ -1,12 +1,12 @@
-from model import layers, transformer
+from project_root.model import layers, transformer
 import torch
 import torch.nn as nn
 from tokenizers import Tokenizer
-from Preprocessing import tokenizer
+from project_root.config import config
+from project_root.data import utils
 
-src_token = tokenizer.src_tokenizer()
-trg_token = tokenizer.trg_tokenizer()
-
+src_token = Tokenizer.from_file(config.src_tokenizer)
+trg_token = Tokenizer.from_file(config.trg_tokenizer)
 
 # src_token = Tokenizer.from_file("en_tokenizer.json")
 # trg_token = Tokenizer.from_file("hi_tokenizer.json")
@@ -25,3 +25,13 @@ dec = layers.Decoder(OUTPUT_DIM, EMBED_DIM, HIDDEN_DIM, attn)
 def load_model():
     model = transformer.Seq2Seq(enc, dec, device).to(device)
     return model
+
+if __name__ == "__main__":
+    train_loader = utils.train_loader()
+    src_batch, trg_batch = next(iter(train_loader))
+    src_batch, trg_batch = src_batch.to(device), trg_batch.to(device)
+    model = load_model()
+    
+    with torch.no_grad():
+         output = model(src_batch, trg_batch[:,:-1])
+    print("Output shape:", output.shape)  

@@ -1,2 +1,4 @@
 .venv/
 /project_root/dataset
+/project_root/tokenizers
+/project_root/saved_model
