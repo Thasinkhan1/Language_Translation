@@ -11,7 +11,7 @@ trg_token = Tokenizer.from_file(config.trg_tokenizer)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model.load_state_dict(torch.load(config.SAVED_MODEL_PATH))
+model.load_state_dict(torch.load(config.SAVED_MODEL_PATH,map_location=torch.device('cpu')))
 model.to(device)
 def translate_sentence(sentence):
     model.eval()

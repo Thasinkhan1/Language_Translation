@@ -13,3 +13,4 @@ jinja2
 FastAPI
 datasets
 nltk
+uvicorn
