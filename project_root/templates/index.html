@@ -2,69 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Language Translator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 50px;
-      background: #f4f4f4;
-    }
-    .container {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 500px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      resize: none;
-    }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-  </style>
+  <title>🌍 Language Translator</title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
   <div class="container">
-    <h2>🌍 Language Translator</h2>
-    <textarea id="inputText" rows="4" placeholder="Enter text to translate..."></textarea>
-    <br>
+    <h1>🌍 Language Translator</h1>
+
+    <label for="inputText">Enter text:</label>
+    <textarea id="inputText" rows="4" placeholder="Type something..."></textarea>
+
     <button onclick="translateText()">Translate</button>
-    <div class="result" id="outputText"></div>
+
+    <h2>🔄 Translation:</h2>
+    <div class="result" id="outputText">Your translation will appear here...</div>
   </div>
 
-  <script>
-    async function translateText() {
-      const sentence = document.getElementById("inputText").value;
-      const response = await fetch("http://127.0.0.1:8000/translate/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sentence: sentence })
-      });
-      const data = await response.json();
-      document.getElementById("outputText").innerText = "➡ " + data.translation;
-    }
-  </script>
+  <script src="/static/script.js"></script>
 </body>
 </html>
